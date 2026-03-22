@@ -1,0 +1,28 @@
+<!--Se inicia el documento HTML-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--Se define el elemento raíz del documento HTML con el espacio de nombres XHTML-->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <!--Se establece el título de la página HTML-->
+    <title>Ejercicio Javascript</title>
+</head>
+
+<body>
+    <!--Se crea una lista desordenada con el id "lista" y se agregan cinco elementos de lista-->
+    <ul id="lista">
+        <li>Elemento1</li>
+        <li>Elemento2</li>
+        <li>Elemento3</li>
+        <li>Elemento4</li>
+        <li>Elemento5</li>
+    </ul>
+
+    <!--Se crean tres botones que llaman a funciones JavaScript al hacer clic-->
+    <input type="button" value="Agregar elemento" onclick="agregar();">
+	<input type="button" value="Cambiar fondo" onclick="cambiarFondo();">
+	<input type="button" value="Borrar elemento" onclick="borrar();">
+
+    <!--Se incluye un archivo JavaScript externo llamado "script.js" que contiene las funciones para agregar, cambiar el fondo y borrar elementos de la lista-->
+    <script src="script.js"></script>
+</body></html>
