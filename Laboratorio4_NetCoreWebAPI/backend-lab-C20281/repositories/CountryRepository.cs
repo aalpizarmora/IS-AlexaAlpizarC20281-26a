@@ -22,5 +22,23 @@ namespace backend_lab.Repositories
 
             return connection.Query<CountryModel>(query).ToList();
         }
+
+        public bool CreateCountry(CountryModel country)
+        {
+            using var connection = new SqlConnection(connectionString);
+
+            var query = @"INSERT INTO [dbo].[Countries]
+                          ([Name],[Language],[Continent])
+                          VALUES(@Name, @Language, @Continent)";
+
+            var affectedRows = connection.Execute(query, new
+            {
+                Name = country.Name,
+                Language = country.Language,
+                Continent = country.Continent
+            });
+
+            return affectedRows >= 1;
+        }
     }
 }

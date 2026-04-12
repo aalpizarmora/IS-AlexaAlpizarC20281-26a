@@ -8,13 +8,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,
-                      policy =>
-                      {
-                          policy.WithOrigins("http://localhost:8080");
-                          policy.AllowAnyMethod();
-                          policy.AllowAnyHeader();
-                      });
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:8080")
+                  .AllowAnyMethod()
+                  .AllowAnyHeader();
+        });
 });
+
 // Agregar servicios
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -31,9 +32,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
-
 app.UseCors(MyAllowSpecificOrigins);
+
+app.UseAuthorization();
 
 app.MapControllers();
 

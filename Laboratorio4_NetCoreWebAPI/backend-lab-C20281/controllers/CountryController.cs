@@ -22,5 +22,23 @@ namespace backend_lab.Controllers
             var paises = countryService.GetCountries();
             return paises;
         }
+
+        [HttpPost]
+        public ActionResult<bool> CreateCountry(CountryModel country)
+        {
+            if (country == null)
+            {
+                return BadRequest();
+            }
+
+            var result = countryService.CreateCountry(country);
+
+            if (string.IsNullOrEmpty(result))
+            {
+                return Ok(true);
+            }
+
+            return BadRequest(result);
+        }
     }
 }
